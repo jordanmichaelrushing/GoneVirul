@@ -5,7 +5,7 @@
         <header>
           <div class="headline_area">
             <h2 class="entry-title">
-              <%= link_to blog.title, blog, title: blog.title, rel: "bookmark" %>
+              <%= link_to blog.title.html_safe, blog, title: blog.title, rel: "bookmark" %>
             </h2>
             <div class="headline_meta">
               <!--<p class="theauthor">By <a rel="nofollow" href="http://www.gonevirul.com/author/admin/" title="Posts by admin" rel="author">admin</a></p>-->
