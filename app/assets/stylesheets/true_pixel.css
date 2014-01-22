@@ -542,7 +542,6 @@ li.widget {
     list-style: none;
     font-size: 13px;
     line-height: 20px;
-    overflow: hidden;
 }
 li.widget ul li { margin-bottom: 4px }
 li.widget li ul { margin: 7px 0 0 5px }
@@ -1103,6 +1102,8 @@ input#author, input#email, input#url, #comment {
 }
 /*-[ Top Link ]--------------------------------*/
 .top {
+    margin-right: 120px;
+    margin-left: -350px;
     float: right;
     display: block;
     clear: both;
