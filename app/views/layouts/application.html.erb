@@ -70,10 +70,26 @@ body {background-image:url(/assets/backimaged.png);}
     <div id="content_box">  
       <%= yield %>
       <%= render partial: "layouts/side_footer" %>
+      <div class="hiding" id="article-finished">
+        <div style="float:left; width:290px;">We post stuff just like this every day on Facebook. Like us. You won't regret it.</div>
+        <br>
+        <div class="no-show"><a href="#">Close: I already like GoneVirul</a></div>
+      </div>
     </div>
   </div>
   <div style="float: center;margin-top:15px;">
     <center><%= link_to "Contact", contact_path %> - <%= link_to "DMCA / Removal Request", dmca_path %> - <%= link_to "Privacy Policy", privacy_path %> - <%= link_to "Submit Content", submit_path %> - <%= link_to "About GoneVirul", about_path %></center>
   </div>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('#content_area').waypoint(function (direction) {
+              $('#article-finished').toggleClass('hiding', direction === "up");
+          }, {
+              offset: function () {
+                  return $.waypoints('viewportHeight') - $(this).height() + 250;
+              }
+          });
+      });
+  </script>
 </body>
 </html>
