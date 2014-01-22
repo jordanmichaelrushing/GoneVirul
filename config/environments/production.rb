@@ -64,4 +64,15 @@ GoneVirul::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  Paperclip.options.merge!(command_path: "/usr/bin")
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      bucket: 'GoneVirul',
+      access_key_id: 'AKIAJSIDGKKMZVJ4T6SQ',
+      secret_access_key: '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'
+    }
+  }
 end

@@ -34,4 +34,13 @@ GoneVirul::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      bucket: 'GoneVirul-Test',
+      access_key_id: 'AKIAJSIDGKKMZVJ4T6SQ',
+      secret_access_key: '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'
+    }
+  }
 end
