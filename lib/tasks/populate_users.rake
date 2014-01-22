@@ -7,7 +7,6 @@ namespace :db do
             email: "jordan@rushingfitness.com",
             password: "Texman6626",
             password_confirmation: "Texman6626")
-      admin.toggle!(:admin)
     end
   end
 end
