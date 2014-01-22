@@ -23,7 +23,7 @@
 
 <style type="text/css">
 body {background-color:#F0F2F3;}
-body {background-image:url(/assets/backimage.png);}
+body {background-image:url(/assets/backimaged.png);}
 
 .post-info a, .single_post a, a:hover, .textwidget a, #commentform a, .copyrights a:hover, a, #tabber .inside li .meta, .sliderDate, footer .sidebar a:hover, #footer a:hover, .related-posts h3, .related-posts a:hover, .postauthor h4, .total-comments, .related-posts ul li p:hover, #respond h3, h1, h2, h3, h4, h5, h6, #copyright-note a:hover, a, .entry-title a:hover, .headline_meta a:hover {color:#E03F00; }
 #tabber ul.tabs li a.selected, #tabber ul.tabs li.tab-recent-posts a.selected, .tagcloud a:hover, .tags a:hover, #footer .tagcloud a:hover, .readMore, .featured-thumbnail .commentBoxe, .sliderCaptionTop .sliderCat, .currenttext, .pagination a:hover, #commentform input#submit, #cancel-comment-reply-link, .mts-subscribe input[type="submit"], .menu a:hover, .current-menu-item a {background-color:#E03F00;}
@@ -41,7 +41,7 @@ body {background-image:url(/assets/backimage.png);}
   <% if admin_signed_in? %>
     <% if current_admin.id == 1 %>
       <%= link_to 'New Blog', new_blog_path %>
-      <%= link_to 'New Blog', new_photo_path %>
+      <%= link_to 'New Photo', new_photo_path %>
     <% end %>
   <% end %>
   <br />

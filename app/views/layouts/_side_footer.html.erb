@@ -5,7 +5,7 @@
         <li id="widget_recent_entries" class="widget widget-sidebar"><h3>Latest Stories</h3>
           <ul class="advanced-recent-posts">
             <% @blogssidebar.each do |blog| %>
-              <li><a href="<%= blog_path(blog) %>" title="<%= blog.title %>"><% if blog.photos.present? %><img src="<%= blog.photos.landing_image.url(:side_bar) %>" class="wp-post-image"><% end %></a><%= link_to blog.title, blog, title: blog.title %></li>
+              <li><a href="<%= blog_path(blog) %>" title="<%= blog.title %>"><% if blog.photos.present? %><img src="<%= blog.photos.first.landing_picture.url(:side_bar) %>" class="wp-post-image"><% end %></a><%= link_to blog.title, blog, title: blog.title %></li>
             <% end %>
           </ul>
         </li>

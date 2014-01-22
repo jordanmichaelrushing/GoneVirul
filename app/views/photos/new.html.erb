@@ -1,2 +1,7 @@
-<h1>PhotosController#new</h1>
-<p>Find me in app/views/photos_controller/new.html.erb</p>
+<%= form_for @photo, :url => photos_path, :html => { :multipart => true } do |form| %>
+  Landing Image:<br>
+  <%= form.file_field :landing_picture %><br>
+  Blog Image:<br>
+  <%= form.file_field :blog_picture %><br>
+  <%= form.submit %>
+<% end %>

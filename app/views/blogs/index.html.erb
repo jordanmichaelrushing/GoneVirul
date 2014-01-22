@@ -13,7 +13,7 @@
             </div>
           </div><!--.headline_area-->
         </header>
-        <a href="<%= blog_path(blog) %>" title="<%= blog.title %>" rel="nofollow"><div class="featured-thumbnail"><% if blog.photos.present? %><img width="590" height="200" src="<%= blog.photos.landing_image.url(:landing) %>" class="attachment-featured wp-post-image" title=""><% end %></div></a>
+        <a href="<%= blog_path(blog) %>" title="<%= blog.title %>" rel="nofollow"><div class="featured-thumbnail"><% if blog.photos.present? %><img width="590" height="200" src="<%= blog.photos.first.landing_picture.url(:landing).split("?")[0] %>" class="attachment-featured wp-post-image" title=""><% end %></div></a>
         <div class="format_text entry-content">
           <%= smart_truncate blog.description, :sentences => 1  %>          
           <p><a href="<%= blog_path(blog)%>" class="readmore">Read More...</a></p>

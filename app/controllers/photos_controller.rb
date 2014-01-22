@@ -1,4 +1,4 @@
-class PhotosControllerController < ApplicationController
+class PhotosController < ApplicationController
   before_filter :authenticate_admin!, only: [:new, :create, :update, :edit, :destroy]
   
   def new
