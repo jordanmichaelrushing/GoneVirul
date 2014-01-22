@@ -1,9 +1,9 @@
 class BlogsController < ApplicationController
+  before_filter :authenticate_admin!, only: [:new, :create, :update, :edit, :destroy]
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-
+    stories
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }
@@ -14,7 +14,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-
+    stories
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog }
@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   # GET /blogs/new.json
   def new
-    @blog = Blog.new
+    @blog = current_admin.blogs.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
-    @blog = Blog.find(params[:id])
+    @blog = current_admin.blogs.find(params[:id])
   end
 
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(params[:blog])
+    @blog = current_admin.blogs.new(params[:blog])
 
     respond_to do |format|
       if @blog.save
@@ -56,7 +56,7 @@ class BlogsController < ApplicationController
   # PUT /blogs/1
   # PUT /blogs/1.json
   def update
-    @blog = Blog.find(params[:id])
+    @blog = current_admin.blogs.find(params[:id])
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
@@ -72,12 +72,17 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    @blog = Blog.find(params[:id])
+    @blog = current_admin.blogs.find(params[:id])
     @blog.destroy
 
     respond_to do |format|
       format.html { redirect_to blogs_url }
       format.json { head :no_content }
     end
+  end
+
+  def stories
+    @blogs = Blog.order(:created_at).page(params[:page]).per_page(15)
+    @blogssidebar = Blog.order(:created_at).page(params[:page]).per_page(10)
   end
 end

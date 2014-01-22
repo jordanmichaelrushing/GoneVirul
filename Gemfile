@@ -10,6 +10,8 @@ gem 'devise'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem "friendly_id", "~> 4.0.9"
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 # Gems used only for assets and not required
 # in production environments by default.

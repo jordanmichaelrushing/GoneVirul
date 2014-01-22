@@ -9,6 +9,8 @@ Plugin URL: http://www.ianlunn.co.uk/plugins/jquery-parallax/
 License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike). Please attribute work to Ian Lunn simply by leaving these comments in the source code or if you'd prefer, place a link on your website to http://www.ianlunn.co.uk/.
 */
 
+h1,h2,h3,h4,h5,h6, .total-comments, #header_area { font-family: 'Oswald', sans-serif;}
+body {font-family: 'Droid Serif', sans-serif;}
 @charset "utf-8";
 /* CSS Document */
 

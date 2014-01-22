@@ -1,15 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @blog.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<div id="content" class="hfeed">
+  <div class="page-single post_box">
+    <article>
+      <div class="format_text entry-content">
+        <div class="headline_area">
+          <h2 class="entry-title"><%= @blog.title %></h2>
+          <div class="featured-thumbnail"><% if @blog.photos.present? %><img width="590" height="200" src="<%= blog.photos.landing_image.url(:landing) %>" class="attachment-featured wp-post-image" title=""><% end %></div>
+          <div class="headline_meta">
+            <p class="themeta">
+              <span class="calendar"><%= @blog.created_at.strftime("%B %d, %Y") %></span>
+            </p>
+          </div>
+        </div>
+        <p>
+          <%= @blog.description %>
+        </p>
+        <% if admin_signed_in? %>
+          <% if current_admin.id == 1 %>
+            <%= link_to 'Edit', edit_blog_path(@blog) %> |
+            <%= link_to 'Back', blogs_path %>
+          <% end %>
+        <% end %>
+      </div>
+    </article>
+  </div>
+</div>

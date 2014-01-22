@@ -1,8 +1,15 @@
 GoneVirul::Application.routes.draw do
-  devise_for :admins
+  resources :photos, :except => [:index]
+
+  devise_for :admins, :except => [:new, :create, :edit, :show, :delete]
 
   resources :blogs
   root to: "blogs#index"
+  match "about-gonevirul", to: "static_pages#about", as: "about"
+  match "dmca-policy", to: "static_pages#dmca", as: "dmca"
+  match "privacy-policy", to: "static_pages#privacy", as: "privacy"
+  match "contact_us", to: "static_pages#contact", as: "contact"
+  match "submit_content", to: "static_pages#submit", as: "submit"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

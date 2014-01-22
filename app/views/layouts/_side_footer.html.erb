@@ -1,0 +1,33 @@
+<aside class="sidebar">
+  <div id="sidebars">
+    <div class="sidebar">
+      <ul class="sidebar_list">
+        <li id="widget_recent_entries" class="widget widget-sidebar"><h3>Latest Stories</h3>
+          <ul class="advanced-recent-posts">
+            <% @blogssidebar.each do |blog| %>
+              <li><a href="<%= blog_path(blog) %>" title="<%= blog.title %>"><% if blog.photos.present? %><img src="<%= blog.photos.landing_image.url(:side_bar) %>" class="wp-post-image"><% end %></a><%= link_to blog.title, blog, title: blog.title %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li id="facebook_like" class="widget widget-sidebar"><h3>Hey, Join Us On Facebook!</h3></li>
+      </ul>
+    </div>
+  </div><!--sidebars-->
+</aside>
+<div class="top"><a href="#top">Back to Top ↑</a></div>
+<div class="hiding" id="article-finished">
+  <div style="float:left; width:290px;">We post stuff just like this every day on Facebook. Like us. You won't regret it.</div>
+  <br>
+  <div class="no-show"><a href="#">Close: I already like GoneVirul</a></div>
+</div>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('#content_area').waypoint(function (direction) {
+              $('#article-finished').toggleClass('hiding', direction === "up");
+          }, {
+              offset: function () {
+                  return $.waypoints('viewportHeight') - $(this).height() + 750;
+              }
+          });
+      });
+  </script>

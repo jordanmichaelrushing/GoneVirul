@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121052223) do
+ActiveRecord::Schema.define(:version => 20140122031636) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20140121052223) do
     t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "admin_id"
   end
 
   add_index "blogs", ["slug"], :name => "index_blogs_on_slug", :unique => true
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20140121052223) do
     t.string   "landing_picture_content_type"
     t.integer  "landing_picture_file_size"
     t.datetime "landing_picture_updated_at"
+    t.integer  "blog_id"
   end
 
 end
