@@ -501,6 +501,7 @@ a.readmore:hover { text-decoration: underline }
 }
 /*-[ Sidebar ]---------------------------------*/
 #sidebars {
+    margin-top: -232px;
     float: left;
     padding: 0;
     width: 30.2%;
