@@ -3,7 +3,6 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    stories
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }
@@ -14,7 +13,6 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-    stories
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog }
@@ -79,10 +77,5 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_url }
       format.json { head :no_content }
     end
-  end
-
-  def stories
-    @blogs = Blog.order(:created_at).page(params[:page]).per_page(15)
-    @blogssidebar = Blog.order(:created_at).page(params[:page]).per_page(10)
   end
 end
