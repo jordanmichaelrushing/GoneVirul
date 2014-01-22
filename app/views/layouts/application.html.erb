@@ -69,7 +69,34 @@ body {background-image:url(/assets/backimaged.png);}
   <div class="page">
     <div id="content_box">  
       <%= yield %>
-      <%= render partial: "layouts/side_footer" %>
+      <aside class="sidebar">
+        <div id="sidebars">
+          <div class="sidebar">
+            <ul class="sidebar_list" style="position: absolute;top: 137px;left: 879px;right: 225px;">
+              <li class="widget" style="margin-left: 70px;">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- GoneVirul_Vertical_Banner -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:160px;height:600px"
+                     data-ad-client="ca-pub-8318252795689818"
+                     data-ad-slot="8196338281"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </li>
+              <li id="widget_recent_entries" class="widget widget-sidebar"><h3>Latest Stories</h3>
+                <ul class="advanced-recent-posts">
+                  <% @blogssidebar.each do |blog| %>
+                    <li><a href="<%= blog_path(blog) %>" title="<%= blog.title %>"><% if blog.photos.present? %><img src="<%= blog.photos.first.landing_picture.url(:side_bar) %>" class="wp-post-image"><% end %></a><%= link_to blog.title, blog, title: blog.title %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <li id="facebook_like" class="widget widget-sidebar"><h3>Hey, Join Us On Facebook!</h3></li>
+            </ul>
+          </div>
+        </div><!--sidebars-->
+      </aside>
+      <div class="top"><a href="#top">Back to Top ↑</a></div>
       <div class="hiding" id="article-finished">
         <div style="float:left; width:290px;">We post stuff just like this every day on Facebook. Like us. You won't regret it.</div>
         <br>
@@ -77,6 +104,7 @@ body {background-image:url(/assets/backimaged.png);}
       </div>
     </div>
   </div>
+</div>
   <div style="float: center;margin-top:15px;">
     <center><%= link_to "Contact", contact_path %> - <%= link_to "DMCA / Removal Request", dmca_path %> - <%= link_to "Privacy Policy", privacy_path %> - <%= link_to "Submit Content", submit_path %> - <%= link_to "About GoneVirul", about_path %></center>
   </div>
@@ -86,7 +114,7 @@ body {background-image:url(/assets/backimaged.png);}
               $('#article-finished').toggleClass('hiding', direction === "up");
           }, {
               offset: function () {
-                  return $.waypoints('viewportHeight') - $(this).height() + 250;
+                  return $.waypoints('viewportHeight') - $(this).height() + 350;
               }
           });
       });
