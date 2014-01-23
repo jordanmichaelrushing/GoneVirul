@@ -1882,28 +1882,36 @@ position: fixed;
 bottom: 0px;
 right: 0px;
 width: 298px;
--webkit-transition: right 1s ease-in-out;
--moz-transition: right 1s ease-in-out;
--o-transition: right 1s ease-in-out;
--ms-transition: right 1s ease-in-out;
-transition: right 1s ease-in-out;
+height: 110px;
+-webkit-transition: bottom 1.2s ease-in-out;
+-moz-transition: bottom 1.2s ease-in-out;
+-o-transition: bottom 1.2s ease-in-out;
+-ms-transition: bottom 1.2s ease-in-out;
+transition: bottom 1.2s ease-in-out;
 }
  
 #article-finished.hiding
 {
-right: -450px;
+bottom: -150px;
 }
 #article-finished .no-show{
-    text-align:center;
+text-align:center;
   font-size: 12px;
 }
 #article-finished  .no-show a{
     color:#000;
     text-decoration:underline;
     font-size:12px;
-    
 }
 
 .fb-like iframe {
     max-width: inherit;
 }
+body {background-color:#F0F2F3;}
+body {background-image:url(/assets/backimaged.png);}
+
+.post-info a, .single_post a, a:hover, .textwidget a, #commentform a, .copyrights a:hover, a, #tabber .inside li .meta, .sliderDate, footer .sidebar a:hover, #footer a:hover, .related-posts h3, .related-posts a:hover, .postauthor h4, .total-comments, .related-posts ul li p:hover, #respond h3, h1, h2, h3, h4, h5, h6, #copyright-note a:hover, a, .entry-title a:hover, .headline_meta a:hover {color:#E03F00; }
+#tabber ul.tabs li a.selected, #tabber ul.tabs li.tab-recent-posts a.selected, .tagcloud a:hover, .tags a:hover, #footer .tagcloud a:hover, .readMore, .featured-thumbnail .commentBoxe, .sliderCaptionTop .sliderCat, .currenttext, .pagination a:hover, #commentform input#submit, #cancel-comment-reply-link, .mts-subscribe input[type="submit"], .menu a:hover, .current-menu-item a {background-color:#E03F00;}
+.tagcloud a, .tags a, #footer .tagcloud a, .copyrights {border-color: #E03F00;}
+#tabber .inside {border-top-color: #E03F00;}
+#content { float: left; border-left: 0; border-right: 1px solid #E8E8E8; }

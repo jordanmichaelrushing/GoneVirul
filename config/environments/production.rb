@@ -70,7 +70,7 @@ GoneVirul::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      bucket: 'GoneVirul',
+      bucket: 'gonevirul',
       access_key_id: 'AKIAJSIDGKKMZVJ4T6SQ',
       secret_access_key: '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'
     }
