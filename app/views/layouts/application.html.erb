@@ -37,6 +37,10 @@
                 return $.waypoints('viewportHeight') - $(this).height() + 350;
             }
         });
+        $(".no-show").click(function() {
+          $("#article-finished").remove();
+          return false;
+        });
     });
   </script>
   <div id="fb-root"></div>

@@ -16,6 +16,16 @@
         <p>
           <%= @blog.description.html_safe %>
         </p>
+        <div class="fb-share-button" data-href="https://www.facebook.com/gonevirul" data-type="link">  <span style="margin-left: 27%"> We Like Likes. Be sure to spread the aweseomness!</span><br><br><%= image_tag "/assets/shareonfacebook.jpg", style: "margin-left:60px;margin-bottom:-16px" %><div style="margin-left:100px;margin-bottom:20px" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- GoneVirul-Bottom-Description -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px;margin-left: 28%"
+             data-ad-client="ca-pub-8318252795689818"
+             data-ad-slot="5131793888"></ins><br>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
         <% if admin_signed_in? %>
           <% if current_admin.id == 1 %>
             <%= link_to 'Edit', edit_blog_path(@blog) %> |
