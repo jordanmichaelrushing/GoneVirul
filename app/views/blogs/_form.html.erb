@@ -38,17 +38,17 @@
   jQuery(function() {
       return $('#new_photo').fileupload({
         dataType: "script",
-        paramName: "photo[blog_picture]",
+        paramName: "photo[landing_picture]",
         add: function(e, data) {
-          var blog_picture, types;
+          var landing_picture, types;
           types = /(\.|\/)(gif|jpe?g|png)$/i;
-          blog_picture = data.files[0];
-          if (types.test(blog_picture.type) || types.test(blog_picture.name)) {
-            data.context = $(tmpl("template-upload", blog_picture));
+          landing_picture = data.files[0];
+          if (types.test(landing_picture.type) || types.test(landing_picture.name)) {
+            data.context = $(tmpl("template-upload", landing_picture));
             $('#new_photo').append(data.context);
             return data.submit();
           } else {
-            return alert("" + blog_picture.name + " is not a gif, jpeg, or png file type");
+            return alert("" + landing_picture.name + " is not a gif, jpeg, or png file type");
           }
         },
         progress: function(e, data) {
