@@ -23,7 +23,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new.json
   def new
     @blog = current_admin.blogs.new
-
+    photo = @blog.photos.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @blog }

@@ -19,7 +19,45 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <div class="field">
+    <%= f.fields_for :photos do |builder| %>
+      <%= render 'photo_fields', f: builder %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script id="template-upload" type="text/x-tmpl">
+  <div class="upload">
+    {%=o.name%}
+    <div class="progress"><div class="bar" style="width: 0%"></div></div>
+  </div>
+</script>
+<script>
+  jQuery(function() {
+      return $('#new_photo').fileupload({
+        dataType: "script",
+        paramName: "photo[blog_picture]",
+        add: function(e, data) {
+          var blog_picture, types;
+          types = /(\.|\/)(gif|jpe?g|png)$/i;
+          blog_picture = data.files[0];
+          if (types.test(blog_picture.type) || types.test(blog_picture.name)) {
+            data.context = $(tmpl("template-upload", blog_picture));
+            $('#new_photo').append(data.context);
+            return data.submit();
+          } else {
+            return alert("" + blog_picture.name + " is not a gif, jpeg, or png file type");
+          }
+        },
+        progress: function(e, data) {
+          var progress;
+          if (data.context) {
+            progress = parseInt(data.loaded / data.total * 100, 10);
+            return data.context.find('.bar').css('width', progress + '%');
+          }
+        }
+      });
+    });
+  </script>
