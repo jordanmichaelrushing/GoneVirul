@@ -1,7 +1,15 @@
 module ApplicationHelper
   def smart_truncate(s, opts = {})
     if opts[:sentences]
-      return s.split(/\./).reject{ |s| s.strip.empty? }[0, opts[:sentences]].map{|s| s.strip}.join('. ')+".".html_safe 
+      if opts[:description]
+        if s.include? "<"
+          return s.split(">")[1].split("<")[0]
+        else
+          return s.split(/\./).reject{ |s| s.strip.empty? }[0, opts[:sentences]].map{|s| s.strip}.join('. ')+".".html_safe 
+        end
+      else
+        return s.split(/\./).reject{ |s| s.strip.empty? }[0, opts[:sentences]].map{|s| s.strip}.join('. ')+".".html_safe 
+      end
     end
   end
 

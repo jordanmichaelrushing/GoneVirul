@@ -1,5 +1,5 @@
 <% provide(:title, @blog.title) %>
-<meta name="description" content="<%=smart_truncate @blog.description.html_safe, :sentences => 1%>">
+<meta name="description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true) %>">
 <div id="content" class="hfeed">
   <div class="page-single post_box">
     <article>
