@@ -1008,7 +1008,6 @@ input#author, input#email, input#url, #comment {
 }
 .pagination ul li {
     display: inline-block;
-    float: left;
     margin-right: 10px;
     text-align: center;
 }
