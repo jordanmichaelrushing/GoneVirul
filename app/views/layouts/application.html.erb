@@ -24,7 +24,6 @@
   <![endif]-->
 </head>
 <body>
-  <%= piwik_tracking_tag %>
   <script type="text/javascript">
     $(document).ready(function () {
         $('#content_area').waypoint(function (direction) {
@@ -119,5 +118,6 @@
   <div style="margin-top:15px;">
     <center><%= link_to "Contact", contact_path %> - <%= link_to "DMCA / Removal Request", dmca_path %> - <%= link_to "Privacy Policy", privacy_path %> - <%= link_to "Submit Content", submit_path %> - <%= link_to "About GoneVirul", about_path %></center>
   </div>
+  <%= piwik_tracking_tag %>
 </body>
 </html>

@@ -12,17 +12,17 @@
 production:
   piwik:
     id_site: 1
-    url: gonevirul.com/piwik
+    url: piwik.gonevirul.com
     use_async: true
     disabled: false
 
 development:
   piwik:
     id_site: 1
-    url: /piwik
+    url: /piwik-development
     disabled: false
     use_async: true
-    hostname: localhost
+    hostname: localhost:3000
 
 test:
   piwik:
