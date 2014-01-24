@@ -12,7 +12,7 @@
 production:
   piwik:
     id_site: 1
-    url: piwik.gonevirul.com
+    url: gonevirul.com/piwik
     use_async: true
     disabled: false
 
