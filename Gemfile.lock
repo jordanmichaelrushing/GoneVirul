@@ -94,8 +94,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rack_clicky (1.0.5)
-      rack
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -154,7 +152,6 @@ DEPENDENCIES
   jquery-rails
   mysql2
   paperclip (~> 3.0)
-  rack_clicky
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

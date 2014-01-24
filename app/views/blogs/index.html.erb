@@ -1,5 +1,5 @@
 <meta name="description" content="Look at what's trending right now, here at GoneVirul.com">
-<div>
+<div style="overflow-y:scroll;height:100%">
   <% @blogs.each do |blog| %>
     <div id="content" class="hfeed homepage">
       <article class="article">
@@ -29,9 +29,9 @@
         </div>
       </article>
     </div>
-  <% end %><br><br>
-  <%= will_paginate %>
+  <% end %>
 </div>
+<%= will_paginate %>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

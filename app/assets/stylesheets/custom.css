@@ -1733,7 +1733,7 @@ pre {
     .page, .menu { width: 98% }
     #footer_area .page { width: 93.9% }
     #content { }
-    #sidebars { max-width: 304px }
+    #sidebars { display: none }
     #sidebars img, #footer img, #content img { }
     #s { width: 70% }
     .related-posts li {
@@ -1794,7 +1794,14 @@ pre {
         max-width: 94.8%;
         border-left: 0;
     }
-    #sidebars { width: 100% }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    h2 {
+        font-size: 30pt;
+    }
+    #sidebars { width: 0px; }
 }
 /*-----------------------------------------[ 720 ]-------------------------------------*/
 @media screen and (max-width:720px) { 
@@ -1808,6 +1815,7 @@ pre {
 /*-----------------------------------------[ 550 ]-------------------------------------*/
 @media screen and (max-width:550px) { 
     .f-widget { width: 95% }
+    body { font-size: 17px}
 }
 /*-----------------------------------------[ 480 ]-------------------------------------*/
 @media screen and (max-width:480px) { 
@@ -1835,8 +1843,8 @@ pre {
 }
 /*-----------------------------------------[ 320 ]-------------------------------------*/
 @media screen and (max-width:320px) { 
-    body { font-size: 13px; margin: 0; padding: 0; }
-    .headline_area h1, .headline_area h2 { font-size: 20px!important }
+    body { font-size: 20px; margin: 0; padding: 0; }
+    .headline_area h1, .headline_area h2 { font-size: 50px!important }
     .themeta { float: left }
     .thecategories { float: none }
     .format_text h1 {
@@ -1858,6 +1866,13 @@ pre {
     .copyrights { font-size: 10px }
     .related-posts li { max-width: 45% }
     input#author, input#email, input#url, #comment { max-width: 95% }
+    .entry-content, .entry-content > p, .wp-caption-text {
+        font-size: 30px;
+        line-height: 2;
+    }
+    .entry-title {
+        line-height: 70px!important;
+    }
 }
 /*-----------------------------------------[ 240 ]-------------------------------------*/
 @media screen and (max-width:240px) { 
@@ -1916,3 +1931,6 @@ body {background-image:url(/assets/backimaged.png);}
 .tagcloud a, .tags a, #footer .tagcloud a, .copyrights {border-color: #E03F00;}
 #tabber .inside {border-top-color: #E03F00;}
 #content { float: left; border-left: 0; border-right: 1px solid #E8E8E8; }
+.content-pictures {
+    margin-left: 50px;
+}
