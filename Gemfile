@@ -13,7 +13,6 @@ gem "friendly_id", "~> 4.0.9"
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem "jquery-fileupload-rails"
-gem 'piwik_analytics', '~> 1.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
