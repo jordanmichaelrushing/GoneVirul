@@ -15,7 +15,7 @@
               </div>
             </div><!--.headline_area-->
           </header>
-          <a href="<%= blog_path(blog) %>" title="<%= blog.title %>" rel="nofollow"><div class="featured-thumbnail"><% if blog.photos.present? %><img width="590" height="200" src="<%= blog.photos.where("`landing_picture_file_name` IS NOT NULL").first.landing_picture.url.split("?")[0] %>" class="attachment-featured wp-post-image" title=""><% end %></div></a>
+          <a href="<%= blog_path(blog) %>" title="<%= blog.title %>" rel="nofollow"><div class="featured-thumbnail"><% if blog.photos.present? %><img width="590" height="200" src="<%= blog.photos.where("`landing_picture_file_name` IS NOT NULL").first.landing_picture.url(:landing).split("?")[0] %>" class="attachment-featured wp-post-image" title=""><% end %></div></a>
           <div class="format_text entry-content">
             <%= (smart_truncate blog.description, :sentences => 2).html_safe  %>          
             <p><a href="<%= blog_path(blog)%>" class="readmore">Read More...</a></p>
