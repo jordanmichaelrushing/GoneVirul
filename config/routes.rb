@@ -1,7 +1,7 @@
 GoneVirul::Application.routes.draw do
   resources :photos, :except => [:index]
   devise_for :admins, :except => [:new, :create, :edit, :show, :delete]
-  resources :blogs
+  resources :blogs, path: '/'
   root to: "blogs#index"
   match "about-gonevirul", to: "static_pages#about", as: "about"
   match "dmca-policy", to: "static_pages#dmca", as: "dmca"
