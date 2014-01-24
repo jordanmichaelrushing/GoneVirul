@@ -1761,6 +1761,36 @@ text-align:center;
         -webkit-border-radius: 0!important;
         top: 0!important;
     }
+    .entry-content, .entry-content > p, .wp-caption-text {
+        font-size: 40px;
+        line-height: 2;
+    }
+    .entry-title > a {
+        line-height: 70px!important;
+        font-size: 56px;
+    }
+    #article-finished {
+        width: 100%!important;
+        height: 300px!important;
+    }
+    #hidden-finished {
+        width: 100%!important;
+        font-size: 36px;
+        line-height: 2;
+        margin-left: 40px;
+    }
+    #article-finished > .no-show > a {
+        line-height: 3!important;
+        font-size: 36px;
+    }
+    .format_text h1 {
+        line-height: 48px;
+        font-size: 28px;
+    }
+    .format_text h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
 }
 /*-----------------------------------------[ 996 ]-------------------------------------*/
 @media screen and (max-width:996px) { 
