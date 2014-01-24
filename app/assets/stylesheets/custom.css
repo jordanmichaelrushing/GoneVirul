@@ -15,7 +15,6 @@ aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu,
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
 }
@@ -1589,6 +1588,10 @@ pre {
     margin-bottom: 15px;
     float: left;
 }
+#article-finished.hiding
+{
+    bottom: -150px;
+}
 .column-last {
     margin-right: 0!important;
     clear: right;
@@ -1677,6 +1680,25 @@ pre {
     cursor: pointer;
     margin: 0;
 }
+#article-finished
+{
+padding: 10px;
+background-color: #FFFFFF;
+border: 1px solid #EE4824;
+font-size: 14px;
+color: #EE4824;
+font-weight: bold;
+position: fixed;
+bottom: 0px;
+right: 0px;
+width: 298px;
+height: 110px;
+-webkit-transition: bottom 1.2s ease-in-out;
+-moz-transition: bottom 1.2s ease-in-out;
+-o-transition: bottom 1.2s ease-in-out;
+-ms-transition: bottom 1.2s ease-in-out;
+transition: bottom 1.2s ease-in-out;
+}
 .toggle .togglet span, .toggle .toggleta span {
     display: block;
     height: 36px;
@@ -1712,6 +1734,18 @@ pre {
     text-align: right;
     padding-bottom: 5px;
     border-bottom: 5px solid #EEE;
+}
+#article-finished .no-show{
+text-align:center;
+  font-size: 12px;
+}
+#article-finished  .no-show a{
+    color:#000;
+    text-decoration:underline;
+    font-size:12px;
+}
+#article-finished.hiding {
+    bottom: -350px;
 }
 /*-----------------------------------------[ 1200 ]-------------------------------------*/
 @media screen and (max-width:1200px) { 
@@ -1843,7 +1877,7 @@ pre {
 }
 /*-----------------------------------------[ 320 ]-------------------------------------*/
 @media screen and (max-width:320px) { 
-    body { font-size: 20px; margin: 0; padding: 0; }
+    body { margin: 0; padding: 0; }
     .headline_area h1, .headline_area h2 { font-size: 50px!important }
     .themeta { float: left }
     .thecategories { float: none }
@@ -1873,6 +1907,20 @@ pre {
     .entry-title {
         line-height: 70px!important;
     }
+    #article-finished {
+        width: 100%!important;
+        height: 300px!important;
+    }
+    #hidden-finished {
+        width: 100%!important;
+        font-size: 36px;
+        line-height: 2;
+        margin-left: 40px;
+    }
+    #article-finished > .no-show > a {
+        line-height: 3!important;
+        font-size: 36px;
+    }
 }
 /*-----------------------------------------[ 240 ]-------------------------------------*/
 @media screen and (max-width:240px) { 
@@ -1886,39 +1934,7 @@ pre {
     }
     .related-posts li { max-width: 100% }
 } 
-#article-finished
-{
-padding: 10px;
-background-color: #FFFFFF;
-border: 1px solid #EE4824;
-font-size: 14px;
-color: #EE4824;
-font-weight: bold;
-position: fixed;
-bottom: 0px;
-right: 0px;
-width: 298px;
-height: 110px;
--webkit-transition: bottom 1.2s ease-in-out;
--moz-transition: bottom 1.2s ease-in-out;
--o-transition: bottom 1.2s ease-in-out;
--ms-transition: bottom 1.2s ease-in-out;
-transition: bottom 1.2s ease-in-out;
-}
- 
-#article-finished.hiding
-{
-bottom: -150px;
-}
-#article-finished .no-show{
-text-align:center;
-  font-size: 12px;
-}
-#article-finished  .no-show a{
-    color:#000;
-    text-decoration:underline;
-    font-size:12px;
-}
+
 
 .fb-like iframe {
     max-width: inherit;
