@@ -1,6 +1,6 @@
 <%= form_for @photo, :html => { :multipart => true } do |f| %>
 Blog Image:<br>
-  <%= f.file_field :blog_picture, label: 'Upload Attachment', id: "blog_picture" %>
+  <%= f.file_field :blog_picture, :multiple => "true", label: 'Upload Attachment', id: "blog_picture" %>
 <% end %>
 <script id="template-upload" type="text/x-tmpl">
   <div class="upload">
