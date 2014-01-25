@@ -17,7 +17,7 @@
   <% Blog.limit(10).order("created_at DESC").pluck('title').each do |f| %>
     <% str << f.tr(" ",",").tr(".",",").gsub(",,",",")+"," %>
   <% end %>
-
+  <meta property="fb:app_id" content="681525395231537">
   <meta name="keywords" content="<%=str[0..-2]%>">
   
   <!--[if lt IE 9]>
@@ -109,7 +109,8 @@
         
         <div class="hiding" id="article-finished">
           <div id="hidden-finished">We post stuff just like this every day on Facebook. Like us, we have cookies.</div>
-          <br><div class="fb-like" data-href="https://www.facebook.com/gonevirul" data-width="300px" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+          <br><div class="fb-like" data-href="https://www.facebook.com/gonevirul" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+          <br>
           <div class="no-show"><a id="no-show" href="#">Close: I already liked GoneVirul</a></div>
         </div>
       </div>

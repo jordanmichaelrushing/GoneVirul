@@ -1692,7 +1692,7 @@ position: fixed;
 bottom: 0px;
 right: 0px;
 width: 298px;
-height: 110px;
+height: 150px;
 -webkit-transition: bottom 1.2s ease-in-out;
 -moz-transition: bottom 1.2s ease-in-out;
 -o-transition: bottom 1.2s ease-in-out;
@@ -1744,11 +1744,17 @@ text-align:center;
     text-decoration:underline;
     font-size:12px;
 }
+#like-p {
+    margin-left: 27%
+}
 #article-finished.hiding {
     bottom: -350px;
 }
 #logo {
     width: 265px;
+}
+#fb-share-button {
+    margin-left: 60px;
 }
 /*-----------------------------------------[ 1200 ]-------------------------------------*/
 @media screen and (max-width:1200px) { 
@@ -1810,6 +1816,12 @@ text-align:center;
     .related-posts li {
         max-width: 31%;
         margin-right: 10px;
+    }
+    #like-p {
+        margin-left: 9%;
+    }
+    #fb-share-button {
+        margin-left: 4px;
     }
 }
 /*-----------------------------------------[ 768 ]-------------------------------------*/
@@ -1956,6 +1968,12 @@ text-align:center;
     }
     #logo {
         width:230px;
+    }
+    #like-p {
+        margin-left: 9%;
+    }
+    #fb-share-button {
+        margin-left: 4px;
     }
 }
 /*-----------------------------------------[ 240 ]-------------------------------------*/

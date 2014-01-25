@@ -14,8 +14,9 @@
           </div>
         </div>
         <p>
-          <%= @blog.description.html_safe %>
-          <div class="fb-share-button" data-href="https://www.facebook.com/gonevirul" data-type="link">  <span style="margin-left: 27%"> We Like Likes. Be sure to spread the aweseomness!</span><br><br><%= image_tag "/assets/shareonfacebook.jpg", style: "margin-left:60px;margin-bottom:-16px" %><div style="margin-left:100px;margin-bottom:20px" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></div>
+          <%= @blog.description.html_safe %><br><br>
+          <div class="fb-comments" data-href="www.gonevirul.com<%= request.fullpath %>" data-numposts="5" data-colorscheme="light"></div>
+          <div class="fb-share-button" data-href="https://www.facebook.com/gonevirul" data-type="link">  <span id="like-p"> We Like Likes. Be sure to spread the aweseomness!</span><br><br><%= image_tag "/assets/shareonfacebook.jpg", style: "margin-bottom:-16px", id: "fb-share-button" %><div style="margin-left:100px;margin-bottom:20px" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></div>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- GoneVirul-Bottom-Description -->
           <ins class="adsbygoogle"
