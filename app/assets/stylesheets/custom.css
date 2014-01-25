@@ -1747,6 +1747,9 @@ text-align:center;
 #article-finished.hiding {
     bottom: -350px;
 }
+#logo {
+    width: 265px;
+}
 /*-----------------------------------------[ 1200 ]-------------------------------------*/
 @media screen and (max-width:1200px) { 
     .shareit {
@@ -1950,6 +1953,9 @@ text-align:center;
     #article-finished > .no-show > a {
         line-height: 3!important;
         font-size: 36px;
+    }
+    #logo {
+        width:230px;
     }
 }
 /*-----------------------------------------[ 240 ]-------------------------------------*/
