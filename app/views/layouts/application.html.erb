@@ -19,7 +19,21 @@
   <% end %>
   <meta property="fb:app_id" content="681525395231537">
   <meta name="keywords" content="<%=str[0..-2]%>">
-  
+
+  <% if @blog.present? %>
+    <meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>"/>
+    <meta name="og:title" content="<%= @blog.title.html_safe%>"/>
+    <meta name="og:type" content="blog"/>
+    <meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
+    <% if @blog.photos.present? %>
+      <meta name="og:image" content="<%=@blog.photos.first.landing_picture.url(:side_bar)%>"/>
+    <% end %>
+  <% else %>
+    <meta name="description" content="We post stuff just like this every day on Facebook. Like us, we have cookies."/>
+    <meta name="og:title" content="GoneVirul - Get your fix with what's treading red hot on the Web"/>
+    <meta name="og:type" content="blog"/>
+    <meta name="og:description" content="We post stuff just like this every day on Facebook. Like us, we have cookies."/>
+  <% end %>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
