@@ -9,4 +9,11 @@ class Photo < ActiveRecord::Base
   has_attached_file :blog_picture, :styles => { :blog => "600x447#"}, :default_url => "/images/:style/missing.png"
 
   belongs_to :blogs
+
+  def blog_picture_from_url(url)
+    self.blog_picture = open(url)
+  end
+  def landing_picture_from_url(url)
+    self.landing_picture = open(url)
+  end
 end

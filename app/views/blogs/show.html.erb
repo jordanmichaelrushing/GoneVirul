@@ -1,11 +1,16 @@
-<% provide(:title, @blog.title) %>
-<meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>">
+<% provide(:title, @blog.title.html_safe) %>
+<meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>"/>
+<meta name="og:title" content="<%= @blog.title.html_safe%>"/>
+<meta name="og:type" content="blog"/>
+<meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
+<% if @blog.photos.present? %><meta name="og:image" content="<%= @blog.photos.first.landing_picture.url(:landing) %>"/>
+<% else %><meta name="og:image" content="/assets/GoneVirul.png"/><% end %>
 <div id="content" class="hfeed">
   <div class="page-single post_box">
     <article>
       <div class="format_text entry-content">
         <div class="headline_area">
-          <h2 class="entry-title"><%= @blog.title %></h2>
+          <h2 class="entry-title"><%= @blog.title.html_safe %></h2>
           <div class="featured-thumbnail"><% if @blog.photos.present? %><img width="590" height="200" src="<%= @blog.photos.first.landing_picture.url(:landing) %>" class="attachment-featured wp-post-image" title=""><% end %></div>
           <div class="headline_meta">
             <p class="themeta">
@@ -15,8 +20,10 @@
         </div>
         <p>
           <%= @blog.description.html_safe %><br><br>
-          <div class="fb-comments" data-href="www.gonevirul.com<%= request.fullpath %>" data-numposts="5" data-colorscheme="light"></div>
-          <div class="fb-share-button" data-href="https://www.facebook.com/gonevirul" data-type="link">  <span id="like-p"> Be sure to spread the aweseomness!</span><br><br><%= image_tag "/assets/shareonfacebook.jpg", style: "margin-bottom:-16px", id: "fb-share-button" %><div style="margin-left:100px;margin-bottom:20px" class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></div>
+          <div class="fb-comments" data-href="www.gonevirul.com<%= request.fullpath %>" data-numposts="5" data-colorscheme="light"></div><br>
+          <span id="like-p"> Be sure to spread the awesomeness!</span><br><br>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=www.gonevirul.com<%= request.fullpath %>"><img alt='Shareonfacebook' id='fb-share-button' src='/assets/shareonfacebook.jpg' style='margin-bottom:-16px'></a>
+          <div style="margin-left:100px;margin-bottom:20px" id="my-fb-liker" class="fb-like" data-href="http://facebook.com/gonevirul" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- GoneVirul-Bottom-Description -->
           <ins class="adsbygoogle"

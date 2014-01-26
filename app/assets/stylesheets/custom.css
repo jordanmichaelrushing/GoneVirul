@@ -1812,6 +1812,7 @@ text-align:center;
     }
     #fb-share-button {
         margin-left: 4px;
+        width: 72%;
     }
     #top-ad {
         margin-right: 10%;
@@ -1984,6 +1985,7 @@ text-align:center;
         margin-left: 9%;
     }
     #fb-share-button {
+        width: 42%;
         margin-left: 4px;
     }
 }
