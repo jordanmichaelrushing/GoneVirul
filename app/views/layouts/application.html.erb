@@ -21,10 +21,12 @@
   <meta name="keywords" content="<%=str[0..-2]%>">
 
   <% if @blog.present? %>
-    <meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>"/>
-    <meta name="og:title" content="<%= @blog.title.html_safe%>"/>
-    <meta name="og:type" content="blog"/>
-    <meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
+    <% if @blog.title.present? %>
+      <meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>"/>
+      <meta name="og:title" content="<%= @blog.title.html_safe%>"/>
+      <meta name="og:type" content="blog"/>
+      <meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
+    <% end %>
     <% if @blog.photos.present? %>
       <meta name="og:image" content="<%=@blog.photos.first.landing_picture.url(:side_bar)%>"/>
     <% end %>
