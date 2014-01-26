@@ -1,5 +1,5 @@
 class Blog < ActiveRecord::Base
-  attr_accessible :description, :title, :photos_attributes
+  attr_accessible :description, :title, :photos_attributes, :ip_address, :ip_address_count
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
 

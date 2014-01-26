@@ -11,6 +11,7 @@
       <div class="format_text entry-content">
         <div class="headline_area">
           <h2 class="entry-title"><%= @blog.title.html_safe %></h2>
+          <p style="text-size:2px"><%= image_tag "/assets/flame.png", style: "width:1%" %><%= @blog.ip_address_count %></p>
           <div class="featured-thumbnail"><% if @blog.photos.present? %><img width="590" height="200" src="<%= @blog.photos.first.landing_picture.url(:landing) %>" class="attachment-featured wp-post-image" title=""><% end %></div>
           <div class="headline_meta">
             <p class="themeta">
@@ -44,3 +45,20 @@
     </article>
   </div>
 </div>
+<% if @blog.ip_address.present? %>
+  <% if !@blog.ip_address.include? request.remote_ip %>
+    <% @blog.ip_address = "#{@blog.ip_address}" + ", " + "#{request.remote_ip.to_s}" %>
+    <% @blog.ip_address_count += 1 %>
+    <% @blog.save %>
+  <% end %>
+<% else %>
+  <% @blog.update_attributes(ip_address: request.remote_ip.to_s, ip_address_count: 1) %>
+<% end %>
+
+
+
+
+
+
+
+
