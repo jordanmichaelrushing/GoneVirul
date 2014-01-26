@@ -1,8 +1,10 @@
 <% provide(:title, @blog.title.html_safe) %>
-<meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>"/>
-<meta name="og:title" content="<%= @blog.title.html_safe%>"/>
-<meta name="og:type" content="blog"/>
-<meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
+<head>
+  <meta name="description" content="<%=smart_truncate @blog.description, :sentences => 1, :description => true %>"/>
+  <meta name="og:title" content="<%= @blog.title.html_safe%>"/>
+  <meta name="og:type" content="blog"/>
+  <meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
+</head>
 <% if @blog.photos.present? %><meta name="og:image" content="<%= @blog.photos.first.landing_picture.url(:landing) %>"/>
 <% else %><meta name="og:image" content="/assets/GoneVirul.png"/><% end %>
 <div id="content" class="hfeed">
