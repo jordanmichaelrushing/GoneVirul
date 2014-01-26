@@ -11,11 +11,9 @@
       <div class="format_text entry-content">
         <div class="headline_area">
           <h2 class="entry-title"><%= @blog.title.html_safe %></h2>
-          <p style="text-size:2px"><%= image_tag "/assets/flame.png", style: "width:1%;margin-right:3px" %><%= @blog.ip_address_count %></p>
           <div class="featured-thumbnail"><% if @blog.photos.present? %><img width="590" height="200" src="<%= @blog.photos.first.landing_picture.url(:landing) %>" class="attachment-featured wp-post-image" title=""><% end %></div>
           <div class="headline_meta">
-            <p class="themeta">
-              <span class="calendar"><%= @blog.created_at.strftime("%B %d, %Y") %></span>
+            <p class="themeta"><%= image_tag "/assets/eye.png", style: "width: 3%;-webkit-filter: contrast(0);margin-right: 5px;margin-bottom: -5px;margin-left: 5px;" %><%= @blog.ip_address_count %><span class="calendar"><%= @blog.created_at.strftime("%B %d, %Y") %></span>
             </p>
           </div>
         </div>
@@ -25,6 +23,7 @@
           <span id="like-p"> Be sure to spread the awesomeness!</span><br><br>
           <a href="https://www.facebook.com/sharer/sharer.php?u=www.gonevirul.com<%= request.fullpath %>"><img alt='Shareonfacebook' id='fb-share-button' src='/assets/shareonfacebook.jpg' style='margin-bottom:-16px'></a>
           <div style="margin-left:100px;margin-bottom:20px" id="my-fb-liker" class="fb-like" data-href="http://facebook.com/gonevirul" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <br><br><br>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- GoneVirul-Bottom-Description -->
           <ins class="adsbygoogle"
