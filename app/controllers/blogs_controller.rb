@@ -42,7 +42,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        SitemapGenerator::Sitemap.ping_search_engines('http://gonevirul.com/public/sitemap.xml.gz')
+        system "rake sitemap:refresh"
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render json: @blog, status: :created, location: @blog }
       else
@@ -59,7 +59,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
-        SitemapGenerator::Sitemap.ping_search_engines('http://gonevirul.com/public/sitemap.xml.gz')
+        system "rake sitemap:refresh"
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
         format.json { head :no_content }
       else
