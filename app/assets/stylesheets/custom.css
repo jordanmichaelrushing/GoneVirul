@@ -1745,7 +1745,8 @@ pre {
     font-size:12px;
 }
 #like-p {
-    margin-left: 27%
+    margin-left: 25%;
+    display: inline-flex;
 }
 #article-finished.hiding {
     bottom: -350px;

@@ -19,10 +19,10 @@
         </div>
         <p>
           <%= @blog.description.html_safe %><br><br>
-          <div class="fb-comments" data-href="www.gonevirul.com<%= request.fullpath %>" data-numposts="5" data-colorscheme="light"></div><br>
-          <span id="like-p"> Be sure to spread the awesomeness!</span><br><br>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=www.gonevirul.com<%= request.fullpath %>"><img alt='Shareonfacebook' id='fb-share-button' src='/assets/shareonfacebook.jpg' style='margin-bottom:-16px'></a>
-          <div style="margin-left:100px;margin-bottom:20px" id="my-fb-liker" class="fb-like" data-href="http://facebook.com/gonevirul" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <div class="fb-comments" data-href="http://gonevirul.com<%= request.fullpath %>" data-numposts="5" data-colorscheme="light"></div>
+          <h3>Like what you see? Be sure to spread this article to your friends!</h3><br>
+          <div id="like-p" class="fb-share-button" data-href="http://gonevirul.com<%= request.fullpath %>" data-type="button_count"></div>
+          <div style="margin-left:100px;margin-bottom:20px" id="my-fb-liker" class="fb-like" data-href="http://gonevirul.com<%= request.fullpath %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
           <br><br><br>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- GoneVirul-Bottom-Description -->
