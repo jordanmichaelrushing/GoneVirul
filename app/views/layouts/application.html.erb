@@ -28,7 +28,7 @@
       <meta name="og:description" content="<%=(smart_truncate @blog.description, :sentences => 1, :description => true).html_safe %>"/>
     <% end %>
     <% if @blog.photos.present? %>
-      <meta name="og:image" content="<%=@blog.photos.first.landing_picture.url(:side_bar)%>"/>
+      <meta name="og:image" content="<%=@blog.photos.first.landing_picture.url(:landing)%>"/>
     <% end %>
   <% else %>
     <meta name="description" content="We post stuff just like this every day on Facebook. Like us, we have cookies."/>
