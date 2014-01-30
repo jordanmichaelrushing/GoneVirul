@@ -1745,8 +1745,10 @@ pre {
     font-size:12px;
 }
 #like-p {
+    margin-top: -3%;
     margin-left: 25%;
     display: inline-flex;
+    position: absolute;
 }
 #article-finished.hiding {
     bottom: -350px;
@@ -1809,7 +1811,10 @@ pre {
         margin-right: 10px;
     }
     #like-p {
-        margin-left: 9%;
+        margin-top: -3%;
+        margin-left: 25%;
+        display: inline-flex;
+        position: absolute;
     }
     #fb-share-button {
         margin-left: 4px;
@@ -1983,7 +1988,10 @@ pre {
         width:230px;
     }
     #like-p {
-        margin-left: 9%;
+        margin-top: -3%;
+        margin-left: 25%;
+        display: inline-flex;
+        position: absolute;
     }
     #fb-share-button {
         width: 42%;
