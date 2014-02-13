@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
 
-  attr_accessible :blog_picture, :landing_picture
+  attr_accessible :blog_picture, :landing_picture, :temp_picture
   has_attached_file :landing_picture, :styles => { :landing => "", :side_bar => ""},
     :convert_options => { 
         :landing => "-gravity north -thumbnail 590x200^ -extent 590x200" ,

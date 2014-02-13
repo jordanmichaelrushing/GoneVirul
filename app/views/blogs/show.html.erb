@@ -20,9 +20,17 @@
         <p>
           <%= @blog.description.html_safe %><br><br>
           <div class="fb-comments" data-href="http://gonevirul.com<%= request.fullpath %>" data-numposts="5" data-colorscheme="light"></div>
-          <%= image_tag "/assets/blurry cloudy mountain.jpg" %><br>
-          <div id="like-p" class="fb-share-button" data-href="http://gonevirul.com<%= request.fullpath %>" data-type="button_count"></div>
-          <div style="margin-left: 10%;margin-bottom: 20px;margin-top: -3%;position:absolute" id="my-fb-liker" class="fb-like" data-href="http://gonevirul.com<%= request.fullpath %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <% if @blog.fb_post_number.present? %>
+            <div style="text-align:center">
+              <h3>Don't forget to SHARE this with your friends!</h3>
+              <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+              <div class="fb-post" data-href="https://www.facebook.com/gonevirul/posts/<%= @blog.fb_post_number %>" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gonevirul/posts/<%= @blog.fb_post_number %>">Post</a> by <a href="https://www.facebook.com/gonevirul">Gone Virul</a>.</div></div>
+            </div>
+          <% else %>
+            <%= image_tag "/assets/blurry cloudy mountain.jpg" %><br>
+            <div id="like-p" class="fb-share-button" data-href="http://gonevirul.com<%= request.fullpath %>" data-type="button_count"></div>
+            <div style="margin-left: 10%;margin-bottom: 20px;margin-top: -3%;position:absolute" id="my-fb-liker" class="fb-like" data-href="http://gonevirul.com<%= request.fullpath %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <% end %>
           <br><br><br>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- GoneVirul-Bottom-Description -->
@@ -53,11 +61,3 @@
 <% else %>
   <% @blog.update_attributes(ip_address: request.remote_ip.to_s, ip_address_count: 1) %>
 <% end %>
-
-
-
-
-
-
-
-

@@ -42,7 +42,9 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        system "rake sitemap:refresh"
+        if Rails.env == "production"
+          system "rake sitemap:refresh"
+        end
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render json: @blog, status: :created, location: @blog }
       else
@@ -59,7 +61,6 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
-        system "rake sitemap:refresh"
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
         format.json { head :no_content }
       else

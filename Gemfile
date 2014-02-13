@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem "jquery-fileupload-rails"
 gem 'sitemap_generator'
+gem 'activerecord-import', "~> 0.2.0"
 
 # Gems used only for assets and not required
 # in production environments by default.

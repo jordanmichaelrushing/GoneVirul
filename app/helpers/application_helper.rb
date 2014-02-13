@@ -1,16 +1,16 @@
 module ApplicationHelper
   def smart_truncate(s, opts = {})
     if s.present?
-      if s.split(/\.\?\!/)[0].include? "<"
+      if s.split(/\.|\?|\!/)[0].include? "<"
         if s.split(">")[1].include? "<"
           return s.split("<")[0] + s.split(">")[1].split("<")[0] + "..."
         else
           return s.split("<")[0] + s.split(">")[1].split(/\.\?\!/)[0] + "..."
         end
-      elsif s.split(/\.\?\!/)[1].include? "<"
-        return s.split(/\.\?\!/)[0] + '.'+ s.split("<")[0] + "..."
+      elsif s.split(/\.|\?|\!/)[1].include? "<"
+        return s.split(/\.|\?|\!/)[0] + '.'+ s.split("<")[0] + "..."
       else
-        return s.split(/\.\?\!/)[0] + '.'+ s.split(/\.\?\!/)[1] + "..."
+        return s.split(/\.|\?|\!/)[0] + '.'+ s.split(/\.|\?|\!/)[1] + "..."
       end
     end
   end
