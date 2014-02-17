@@ -53,111 +53,126 @@
   </script>
   <noscript><img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=682989795086773&amp;ev=NoScript" /></noscript>
 </head>
-<body>
-  <script type="text/javascript">
-    $(document).ready(function () {
-        $('#content_area').waypoint(function (direction) {
-            $('#article-finished').toggleClass('hiding', direction === "up");
-        }, {
-            offset: function () {
-                return $.waypoints('viewportHeight') - $(this).height() + 350;
-            }
-        });
-        $(".no-show").click(function() {
-          $("#article-finished").remove();
-          return false;
-        });
-    });
-  </script>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <% if admin_signed_in? %>
-    <% if current_admin.id == 1 %>
-      <%= link_to 'New Blog', new_blog_path %>
-      <%= link_to 'New Photo', new_photo_path %>
+<body id="bodybody">
+  <% if @blog.present? %>
+    <% if @blog.fb_post_number.present? %>
+      <% if @blog.youtube_id.present? %>
+        <div id="share_box" style="display:none;width:100%;height:100%"><div id="signup_modal" class='modal'><img src="/assets/close.png" id="close_fb_box"><div class='modal-body modal_signup_forms' style='margin-top: 5px;overflow:hidden;'><div style='text-align:center;border:solid 3px whitesmoke'><h3 style="font-size: 26px;">Like what you see? Share this with your friends then!</h3 style="font-size: 25px;"><div id='fb-root'></div> <div class='fb-post' data-href='https://www.facebook.com/gonevirul/posts/<%=@blog.fb_post_number %>' data-width='466'><div class='fb-xfbml-parse-ignore'><a href='https://www.facebook.com/gonevirul/posts/<%=@blog.fb_post_number %>'>Post</a> by <a href='https://www.facebook.com/gonevirul'>Gone Virul</a>.</div></div><h3 style="font-size: 22px;">Wouldn't you be upset if your friends didn't share this with you?</h3><h4>Thank you so much for supporting us!</h4></div></div></div></div>
+        <script> $("#close_fb_box").click(function() {
+          $("#header_area").removeClass('disabledbody');
+          $("#content_area").removeClass('disabledbody');
+          document.getElementById("share_box").style.display = "none";
+        }) </script>
+      <% end %>
     <% end %>
   <% end %>
-  <br />
+  <supahbody>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('#content_area').waypoint(function (direction) {
+              $('#article-finished').toggleClass('hiding', direction === "up");
+          }, {
+              offset: function () {
+                  return $.waypoints('viewportHeight') - $(this).height() + 350;
+              }
+          });
+          $(".no-show").click(function() {
+            $("#article-finished").remove();
+            return false;
+          });
+      });
+    </script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <% if admin_signed_in? %>
+      <% if current_admin.id == 1 %>
+        <%= link_to 'New Blog', new_blog_path %>
+        <%= link_to 'New Photo', new_photo_path %>
+        <%= link_to "Sign Out", destroy_admin_session_path, method: "delete", id: "delete_css" %>
+      <% end %>
+    <% end %>
+    <br />
 
-  <div id="header_area" style="margin-top: -20px;margin-bottom: -30px;">
-    <div class="page">
-      <header id="header">
-        <h1 id="logo">
-          <a href="<%= root_path %>"><img src="/assets/GoneVirul.png" alt="Gone Virul"></a>
-        </h1>
-        <div id="top-ad" style="width: 728px;float: right;margin-top: 30px">
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" style="margin-top: 15px;"></script>
-          <!-- GoneVirul -->
-          <ins class="adsbygoogle"
-               style="display:inline-block;width:728px;height:90px"
-               data-ad-client="ca-pub-8318252795689818"
-               data-ad-slot="2568607080"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        <div>
-      </header>
-    </div>
-  </div>
-  <div id="content_area" style="min-height:2354px;">
-    <div class="page" style="min-height:2354px;">
-      <div id="content_box" style="min-height:2354px;">
-        <%= yield %>
-        <aside class="sidebar">
-          <div id="sidebars">
-            <div class="sidebar">
-              <ul class="sidebar_list">
-                <li class="widget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                  <!-- GoneVirul_Vertical -->
-                  <ins class="adsbygoogle"
-                       style="display:inline-block;width:300px;height:600px"
-                       data-ad-client="ca-pub-8318252795689818"
-                       data-ad-slot="5602798685" style="margin-left:167px"></ins>
-                  <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
-                </li>
-                <li id="widget_recent_entries" class="widget widget-sidebar" style="padding: 10px;"><h3>Latest Stories</h3>
-                  <ul class="advanced-recent-posts">
-                    <% @blogssidebar.each do |blog| %>
-                      <li><a href="<%= blog_path(blog) %>" title="<%= blog.title %>"><% if blog.photos.present? %><img src="<%= blog.photos.first.landing_picture.url(:side_bar) %>" class="wp-post-image"><% end %></a><%= link_to blog.title.html_safe, blog, title: blog.title.html_safe %></li>
-                    <% end %>
-                  </ul>
-                </li>
-                <li id="facebook_like" class="widget widget-sidebar"><h3>Hey, Join Us On Facebook!</h3></li>
-              </ul>
-            </div>
-          </div><!--sidebars-->
-        </aside>
-        
-        <div class="hiding" id="article-finished">
-          <div id="hidden-finished">We post stuff just like this every day on Facebook. Like us, we have cookies.</div>
-          <br><div class="fb-like" data-href="https://www.facebook.com/gonevirul" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-          <br>
-          <div class="no-show"><a id="no-show" href="#">Close: I already liked GoneVirul</a></div>
-        </div>
+    <div id="header_area" style="margin-top: -28px;margin-bottom: -30px;">
+      <div class="page">
+        <header id="header">
+          <h1 id="logo">
+            <a href="<%= root_path %>"><img src="/assets/GoneVirul.png" alt="Gone Virul"></a>
+          </h1>
+          <div id="top-ad" style="width: 728px;float: right;margin-top: 30px">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" style="margin-top: 15px;"></script>
+            <!-- GoneVirul -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-8318252795689818"
+                 data-ad-slot="2568607080"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          <div>
+        </header>
       </div>
-      <div class="top"><a href="#top">Back to Top ↑</a></div>
     </div>
-  </div>
-  <div style="margin-top:15px;">
-    <center><%= link_to "Contact", contact_path %> - <%= link_to "DMCA / Removal Request", dmca_path %> - <%= link_to "Privacy Policy", privacy_path %> - <%= link_to "Submit Content", submit_path %> - <%= link_to "About GoneVirul", about_path %></center>
-  </div>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <div id="content_area" style="min-height:2354px;margin-top: 30px;">
+      <div class="page" style="min-height:2354px;">
+        <div id="content_box" style="min-height:2354px;">
+          <%= yield %>
+          <aside class="sidebar">
+            <div id="sidebars">
+              <div class="sidebar">
+                <ul class="sidebar_list">
+                  <li class="widget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- GoneVirul_Vertical -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:600px"
+                         data-ad-client="ca-pub-8318252795689818"
+                         data-ad-slot="5602798685" style="margin-left:167px"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                  </li>
+                  <li id="widget_recent_entries" class="widget widget-sidebar" style="padding: 10px;"><h3>Latest Stories</h3>
+                    <ul class="advanced-recent-posts">
+                      <% @blogssidebar.each do |blog| %>
+                        <li><a href="<%= blog_path(blog) %>" title="<%= blog.title %>"><% if blog.photos.present? %><img src="<%= blog.photos.first.landing_picture.url(:side_bar) %>" class="wp-post-image"><% end %></a><%= link_to blog.title.html_safe, blog, title: blog.title.html_safe %></li>
+                      <% end %>
+                    </ul>
+                  </li>
+                  <li id="facebook_like" class="widget widget-sidebar"><h3>Hey, Join Us On Facebook!</h3></li>
+                </ul>
+              </div>
+            </div><!--sidebars-->
+          </aside>
+          
+          <div class="hiding" id="article-finished">
+            <div id="hidden-finished">We post stuff just like this every day on Facebook. Like us, we have cookies.</div>
+            <br><div class="fb-like" data-href="https://www.facebook.com/gonevirul" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            <br>
+            <div class="no-show"><a id="no-show" href="#">Close: I already liked GoneVirul</a></div>
+          </div>
+        </div>
+        <div class="top"><a href="#top">Back to Top ↑</a></div>
+      </div>
+    </div>
+    <div style="margin-top:15px;">
+      <center><%= link_to "Contact", contact_path %> - <%= link_to "DMCA / Removal Request", dmca_path %> - <%= link_to "Privacy Policy", privacy_path %> - <%= link_to "Submit Content", submit_path %> - <%= link_to "About GoneVirul", about_path %></center>
+    </div>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-47445716-1', 'gonevirul.com');
-  ga('send', 'pageview');
+    ga('create', 'UA-47445716-1', 'gonevirul.com');
+    ga('send', 'pageview');
 
-</script>
+  </script>
+</supahbody>
 </body>
 </html>

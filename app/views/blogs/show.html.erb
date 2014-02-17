@@ -20,13 +20,47 @@
         <p>
           <%= @blog.description.html_safe %><br><br>
           <% if @blog.fb_post_number.present? %>
-            <div style="text-align:center;border:solid 3px whitesmoke">
-              <h3>Like what you see? Share this with your friends then!</h3>
-              <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-              <div class="fb-post" data-href="https://www.facebook.com/gonevirul/posts/<%= @blog.fb_post_number %>" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gonevirul/posts/<%= @blog.fb_post_number %>">Post</a> by <a href="https://www.facebook.com/gonevirul">Gone Virul</a>.</div></div>
-              <h3>Wouldn't you be upset if your friends didn't share this with you?</h3>
-              <h4>Don't be 'that guy'</h4>
-            </div>
+            <% if @blog.youtube_id.present? %>
+              <script src='http://www.youtube.com/player_api'></script>
+              <script>
+                  // create youtube player
+                  var player;
+                  function onYouTubePlayerAPIReady() {
+                      player = new YT.Player('player', {
+                        height: '390',
+                        width: '640',
+                        videoId: '<%= @blog.youtube_id %>',
+                        events: {
+                          'onReady': onPlayerReady,
+                          'onStateChange': onPlayerStateChange
+                        }
+                      });
+                  }
+
+                  // autoplay video
+                  function onPlayerReady(event) {
+                      event.target.playVideo();
+                  }
+
+                  // when video ends
+                  function onPlayerStateChange(event) {        
+                      if(event.data === 0) {
+                          (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));
+                         document.getElementById("share_box").style.display = "inline";
+                         $("#header_area").addClass('disabledbody');
+                         $("#content_area").addClass('disabledbody');
+                      }
+                  }
+              </script>
+            <% else %>
+              <div style="text-align:center;border:solid 3px whitesmoke">
+                <h3 style="font-size: 26px;">Like what you see? Share this with your friends then!</h3>
+                <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-post" data-href="https://www.facebook.com/gonevirul/posts/<%= @blog.fb_post_number %>" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gonevirul/posts/<%= @blog.fb_post_number %>">Post</a> by <a href="https://www.facebook.com/gonevirul">Gone Virul</a>.</div></div>
+                <h3 style="font-size: 22px;">Wouldn't you be upset if your friends didn't share this with you?</h3>
+                <h4>Thank you so much for supporting us!</h4>
+              </div>
+            <% end %>
           <% else %>
             <%= image_tag "/assets/blurry cloudy mountain.jpg" %><br>
             <div id="like-p" class="fb-share-button" data-href="http://gonevirul.com<%= request.fullpath %>" data-type="button_count"></div>

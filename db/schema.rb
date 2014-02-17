@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140213135459) do
+ActiveRecord::Schema.define(:version => 20140217034539) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20140213135459) do
     t.string   "ip_address"
     t.integer  "ip_address_count", :default => 0
     t.string   "fb_post_number"
+    t.string   "youtube_id"
   end
 
   add_index "blogs", ["slug"], :name => "index_blogs_on_slug", :unique => true
